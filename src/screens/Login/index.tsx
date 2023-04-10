@@ -1,4 +1,5 @@
-import { Entypo, MaterialIcons } from '@expo/vector-icons'; import React from "react"
+import { Entypo, MaterialIcons } from '@expo/vector-icons' 
+import { FontAwesome, FontAwesome5 } from '@expo/vector-icons' 
 import{
   View, 
   KeyboardAvoidingView,
@@ -7,6 +8,7 @@ import{
  } from "react-native"
 import { colors } from '../../styles/colors';
 import { styles } from "./styles"
+import {ComponentButtonInterface} from "../../components"
 
 export function Login(){
     return (
@@ -23,7 +25,20 @@ export function Login(){
                 style={styles.input}
               />
             </View>
+            <View style={styles.formRow}>
+            <FontAwesome name="key" size={24} color="black" style={styles.icon} />
+              <TextInput
+                placeholder='Senha'
+                placeholderTextColor={colors.third}
+                secureTextEntry={true}
+                autoCapitalize="none"
+                style={styles.input}
+              />
+            </View>
+                <ComponentButtonInterface title="Login" type="primary" onPressI={() => {console.log('Login')}} />
+                <ComponentButtonInterface title="Cadastre-se" type="secondary" onPressI={() => {console.log('Cadastro')}} />
                 </KeyboardAvoidingView>
         </View>
+
     )
 }
