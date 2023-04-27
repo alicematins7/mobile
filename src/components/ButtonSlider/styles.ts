@@ -7,5 +7,11 @@ export const styles = StyleSheet.create({
         height: 30,
         backgroundColor: colors.third,
         borderRadius: 15
+    },
+    click: {
+        width: 30,
+        height: 30,
+        backgroundColor: colors.black,
+        borderRadius: 15
     }
 })

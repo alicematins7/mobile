@@ -24,12 +24,11 @@ export function Slider4({ setPageI }: IPage) {
                 />
             </View>
             <View style={styles.buttonSlider}>
-                <ComponentButtonSlider onPressI={() => setPageI(1)} />
-                <ComponentButtonSlider onPressI={() => setPageI(2)} />
-                <ComponentButtonSlider onPressI={() => setPageI(3)} />
-                <ComponentButtonSlider onPressI={() => setPageI(4)} />
-                <ComponentButtonSlider onPressI={() => setPageI(5)} />
-                <ComponentButtonSlider onPressI={() => setPageI(6)} />
+                <ComponentButtonSlider onPressI={() => setPageI(1)} page={false}/>
+                <ComponentButtonSlider onPressI={() => setPageI(2)} page={false}/>
+                <ComponentButtonSlider onPressI={() => setPageI(3)} page={false}/>
+                <ComponentButtonSlider onPressI={() => setPageI(4)} page={true}/>
+                <ComponentButtonSlider onPressI={() => setPageI(5)} page={false}/> 
             </View>
         </ImageBackground>
     );

@@ -9,16 +9,16 @@ import { colors } from '../../styles/colors';
 import {ComponentButtonInterface} from '../../components';
 import { LoginTypes } from '../../navigation/login.navigation';
 
-export function Cadastro({navigation}: LoginTypes) {
+export function Cadastrar({navigation}: LoginTypes) {
     return(
         <View style={styles.container}>
             <KeyboardAvoidingView>
-                <Text style={styles.title}>Cadastro</Text>
+                <Text style={styles.title}>Cadastre-se</Text>
                 <View style={styles.formRow}>
                     <AntDesign name="user" style={styles.icon} />
                     <TextInput
                         placeholder="Nome"
-                        placeholderTextColor={colors.secondary}
+                        placeholderTextColor={colors.thirdLight}
                         autoCapitalize="none"
                         style={styles.input}
                     />
@@ -27,7 +27,7 @@ export function Cadastro({navigation}: LoginTypes) {
                     <MaterialIcons name="email" style={styles.icon} />
                     <TextInput
                         placeholder="Email"
-                        placeholderTextColor={colors.primary}
+                        placeholderTextColor={colors.thirdLight}
                         keyboardType="email-address"
                         autoCapitalize="none"
                         style={styles.input}
@@ -37,14 +37,22 @@ export function Cadastro({navigation}: LoginTypes) {
                     <FontAwesome5 name="key" style={styles.icon} />
                     <TextInput
                         placeholder="Senha"
-                        placeholderTextColor={colors.secondary}
+                        placeholderTextColor={colors.thirdLight}
                         secureTextEntry={true}
                         autoCapitalize="none"
                         style={styles.input}
                     />
                 </View>
-                <ComponentButtonInterface title="Entrar" type="secondary" onPressI={() => { console.log('Salvar') }} />
-                <ComponentButtonInterface title="Voltar" type="primary" onPressI={() => { navigation.navigate('Login') }} />
+                <ComponentButtonInterface 
+                    title="Entrar" 
+                    type="secondary" 
+                    onPressI={() => { console.log('Salvar') }} 
+                />
+                <ComponentButtonInterface 
+                    title="Voltar" 
+                    type="primary" 
+                    onPressI={() => { navigation.navigate('Login') }}
+                />
             </KeyboardAvoidingView>
         </View>
     )
