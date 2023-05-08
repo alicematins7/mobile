@@ -5,7 +5,7 @@ import {
 } from "react-native";
 import {styles} from "./styles";
 import { MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
-import { colors } from '../../styles/colors';
+import { colors } from '../../styles/color';
 import {ComponentButtonInterface} from '../../components';
 import { LoginTypes } from "../../navigation/login.navigation"
 
@@ -37,7 +37,7 @@ export function Login({navigation}: LoginTypes) {
                 <ComponentButtonInterface 
                     title="Entrar" 
                     type="secondary" 
-                    onPressI={() => {console.log('Login') }} 
+                    onPressI={() => {navigation.navigate('Tab') }} 
                 />
                 <ComponentButtonInterface 
                     title="Cadastre-se" 

@@ -5,7 +5,7 @@ import {
 } from "react-native";
 import {styles} from "./styles";
 import { MaterialIcons, FontAwesome5, AntDesign } from '@expo/vector-icons';
-import { colors } from '../../styles/colors';
+import { colors } from '../../styles/color';
 import {ComponentButtonInterface} from '../../components';
 import { LoginTypes } from '../../navigation/login.navigation';
 
@@ -46,7 +46,7 @@ export function Cadastrar({navigation}: LoginTypes) {
                 <ComponentButtonInterface 
                     title="Entrar" 
                     type="secondary" 
-                    onPressI={() => { console.log('Salvar') }} 
+                    onPressI={() => {navigation.navigate('Drawer')}} 
                 />
                 <ComponentButtonInterface 
                     title="Voltar" 
