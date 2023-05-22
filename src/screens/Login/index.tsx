@@ -5,7 +5,7 @@ import {
 } from "react-native";
 import {styles} from "./styles";
 import { MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
-import { colors } from '../../styles/color';
+import { colors } from '../../styles/colors';
 import {ComponentButtonInterface} from '../../components';
 import { LoginTypes } from "../../navigation/login.navigation"
 

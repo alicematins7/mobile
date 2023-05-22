@@ -1,7 +1,7 @@
 import React from 'react';
 import { DrawerNavigationProp, createDrawerNavigator } from '@react-navigation/drawer';
 import { ScreenCamera, ScreenPerfil } from "../screens"
-import { colors } from '../styles/color';
+import { colors } from '../styles/colors';
 import { Ionicons } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
 type DrawerParamList =

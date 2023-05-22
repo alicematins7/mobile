@@ -1,7 +1,7 @@
 import React from 'react';
 import { BottomTabNavigationProp, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ScreenCamera, ScreenPerfil } from "../screens"
-import { colors } from '../styles/color';
+import { colors } from '../styles/colors';
 import { Ionicons } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons'; 
 type TabParamList = 
@@ -29,7 +29,7 @@ export function TabNavigation() {
     <Tab.Screen name="Perfil" component={ScreenPerfil}
       options={{
         tabBarIcon: () => (
-            <Ionicons name='person' color={colors.white} size={24} />
+            <Ionicons name='person' color={colors.black} size={24} />
         ) 
     }} />
       <Tab.Screen name="Camera" component={ScreenCamera} 

@@ -32,15 +32,6 @@ export const styles = StyleSheet.create({
   img: {
     width: Dimensions.get('window').width,
     height: '100%'
-  },
-  ladinho: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around"
-  },
-  ladinho2: {
-    flexDirection: "row",
-    alignItems: "center"
-  }
+    }
 
 });
