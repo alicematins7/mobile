@@ -1,3 +1,4 @@
+import React from 'react';
 import { FlatList, ImageBackground, View } from 'react-native';
 import { IPage } from '../../../App';
 import {

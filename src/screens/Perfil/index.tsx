@@ -3,6 +3,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { ComponentButtonInterface } from "../../components";
 import { styles } from "./styles";
 import {TabTypes} from "../../navigation/tab.navigation"
+import React from "react";
 
 export function Perfil({ navigation }:TabTypes) {
     function HandleVoltar(){

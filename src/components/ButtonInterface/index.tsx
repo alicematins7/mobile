@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { TouchableOpacity, TouchableOpacityProps, Text } from 'react-native'
 import { styles } from './styles'
 export interface IBInterface extends TouchableOpacityProps{
@@ -12,7 +12,7 @@ export function ButtonInterface({ onPressI, title, type, ...rest }: IBInterface)
             type == "primary" ? styles.buttonPrimary:
                 type == "secondary" ? styles.buttonSecondary:
                     type == "third" ? styles.buttonThird:
-                        styles.buttonThirdLight
+                        styles.buttonThird
         } onPress={onPressI} 
             {...rest} 
         >

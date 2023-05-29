@@ -4,7 +4,7 @@ import {
     TextInput
 } from "react-native";
 import {styles} from "./styles";
-import { MaterialIcons, FontAwesome5, AntDesign } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome5, AntDesign, FontAwesome} from '@expo/vector-icons';
 import { colors } from '../../styles/colors';
 import {ComponentButtonInterface} from '../../components';
 import { LoginTypes } from '../../navigation/login.navigation';
@@ -33,6 +33,16 @@ export function Cadastrar({navigation}: LoginTypes) {
                         style={styles.input}
                     />
                 </View>
+                <View style={styles.formRow}>
+                        <FontAwesome name="phone" size={24} color="#E32D59" />
+                        <TextInput
+                            placeholder='Telefone'
+                            placeholderTextColor={colors.third}
+                            keyboardType="email-address"
+                            autoCapitalize="none"
+                            style={styles.input}
+                        />
+                    </View>
                 <View style={styles.formRow}>
                     <FontAwesome5 name="key" style={styles.icon} />
                     <TextInput
