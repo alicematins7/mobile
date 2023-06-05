@@ -1,13 +1,15 @@
 import React from 'react';
 import { BottomTabNavigationProp, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ScreenCamera, ScreenPerfil } from "../screens"
+import { ScreenCamera, ScreenPerfil, LocationScreen } from "../screens"
 import { colors } from '../styles/colors';
 import { Ionicons } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons'; 
+import { Entypo } from '@expo/vector-icons'; 
 type TabParamList = 
  {
   Perfil: undefined
   Camera: undefined
+  Location: undefined
 }
 type TabScreenNavigationProp = BottomTabNavigationProp<TabParamList, 'Perfil'>
 export type TabTypes = {
@@ -38,6 +40,12 @@ export function TabNavigation() {
             <EvilIcons name="camera" size={24} color="black" />
         ) 
     }} />
+     <Tab.Screen name='Location' component={LocationScreen}
+     options={{
+      tabBarIcon: () => (
+        <Entypo name="location" size={24} color="black" />
+      )
+      }}/> 
     </Tab.Navigator>
   );
 }
