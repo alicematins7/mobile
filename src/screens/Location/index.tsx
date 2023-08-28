@@ -5,7 +5,7 @@ import { styles } from "./styles"
 import MapView, { Polyline } from 'react-native-maps';
 import { Region, Marker } from "react-native-maps";
 import { colors } from '../../styles/colors';
-import { API_GOOGLE} from '@env'
+import { API_GOOGLE} from '@env';
 import { GooglePlaceData, GooglePlaceDetail, GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import MapViewDirections, {} from "react-native-maps-directions";
 import { MaterialCommunityIcons } from '@expo/vector-icons';

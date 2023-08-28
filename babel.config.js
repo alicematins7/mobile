@@ -9,6 +9,5 @@ module.exports = function(api) {
       "safe": false,
       "allowUndefined": true
     }]],
-    plugins: ['react-native-reanimated/plugin']
   };
 };
