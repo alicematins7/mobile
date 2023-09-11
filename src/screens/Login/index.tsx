@@ -9,63 +9,52 @@ import { useAuth } from '../../hooks/auth';
 import { IUserLogin,IAuthenticate } from '../../services/data/User';
 import { apiUser } from '../../services/data';
 import { AxiosError } from 'axios';
-export interface IErrorApi {
+export interface IErrorApi{
     errors: {
         rule: string
         field: string
         message: string
     }[]
 }
-export function Login({navigation}: LoginTypes) {
-    const { signIn} = useAuth();
-    const [data, setData] = useState<IAuthenticate>();
-    const [isloading, setIsLoading] = useState(true);
-    async function SignIn() {
 
-}
-    const [data, setData] = useState<IUserLogin>()
-    const [isloading, setIsLoading] = useState(true)
-    function handleChange(item: IUserLogin){
-        setData({...data, ...item})
-    }
-    async function handleLogin() {
-        try {
-            setIsLoading(true) // clicou no botão de salvar
-            if(user?.user, user?.token){
-                const response = await apiUser.register(data)
-                Alert.alert(`${response.data.name}.cadastrado!!`) // crase é usada para concatenar variavel e texto no mesmo conteudo
-                navigation.navigate("Drawer")
+export function Login({navigation}: LoginTypes) {
+    const { signIn } = useAuth();
+    const [data, setData] = useState<IAuthenticate>();
+    const [isLoading, setIsLoading] = useState(true);
+
+    async function handleSignIn() {
+        try{
+            setIsLoading(true);
+            console.log(data)
+            if (data?.email && data.password) {
+                await signIn(data);
             } else {
-                Alert.alert("Preencha todos os campos")
+                Alert.alert("Preencha todos os campos!");
+                setIsLoading(false);
             }
-        } catch (error){
-            const err = error as AxiosError
-            const errorData = err.response?.data as IErrorApi
-            let message = ""
-            if (errorData){
-                for ( const iterator of errorData.errors) {
-                    message = `${message} ${iterator.message}`
-                }
-            }
-        Alert.alert(message)
-        } finally {
-            setIsLoading
-        }   
+        } catch(error) {
+            console.log(error)
+            const err = error as AxiosError;
+            const message = err.response?.data as string
+            Alert.alert(message)
+            setIsLoading(false);
+        }
+    }
+    //ajustes
+    function handleChange(item: IAuthenticate){
+        setData({...data, ...item})
     }
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false)
-        }, 500) // aguarda meio segundo, e dá falso
-    }, [])
+        }, 500)
+    },[])
     return(
-        <> 
-        {isloading ? ( // se ele for verdadeiro, dá carregando, se for falso, mostra o formulário
-           <ComponentLoading />
-    ) : (  
-    );
-    }
-    return(
-        <View style={styles.container}>
+        <>
+        {isLoading ? (
+          <ComponentLoading />
+        ) : (
+            <View style={styles.container}>
             <KeyboardAvoidingView>
                 <Text style={styles.title}>Login</Text>
                 <View style={styles.formRow}>
@@ -76,6 +65,7 @@ export function Login({navigation}: LoginTypes) {
                         keyboardType="email-address"
                         autoCapitalize="none"
                         style={styles.input}
+                        onChangeText={(i) => handleChange({ email: i })}
                     />
                 </View>
                 <View style={styles.formRow}>
@@ -86,12 +76,13 @@ export function Login({navigation}: LoginTypes) {
                         secureTextEntry={true}
                         autoCapitalize="none"
                         style={styles.input}
+                        onChangeText={(i) => handleChange({ password: i })}
                     />
                 </View>
                 <ComponentButtonInterface 
                     title="Entrar" 
                     type="secondary" 
-                    onPressI={() => {navigation.navigate('Tab') }} 
+                    onPressI={handleSignIn} 
                 />
                 <ComponentButtonInterface 
                     title="Cadastre-se" 
@@ -100,5 +91,7 @@ export function Login({navigation}: LoginTypes) {
                     />
             </KeyboardAvoidingView>
         </View>
-    )
+    )}
+    </>
+  );
 }

@@ -24,7 +24,7 @@ export interface IUserLogin {
 }
 class UserData {
     register(data: IRegister){
-        return api.post<IUser>('/register', data)
+        return api.post<IUser>('/register', data)  //<Dado que será retornado após o cadastro IUser>
     }
     login(data: IAuthenticate){
         return api.post<IUserLogin>('/login')

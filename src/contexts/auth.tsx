@@ -24,22 +24,26 @@ const signIn = useCallback(async ({ email, password }: IAuthenticate) => {
         password,
     });
     const user = response.data;
+    console.log(user)
     api.defaults.headers.common.Authorization = `Bearer ${user.token.token}`; 
     setAuth({ ...user }); 
     await AsyncStorage.setItem("user", JSON.stringify(user))
 }, []);
 
 const removeLocalStorage = async () => { 
+    //remove os dados do usuário do AsyncStorage
     await AsyncStorage.removeItem("user");
 };
 
 const signOut = useCallback(async () => {
+    //limpa a variável de estado
     setAuth({} as IUserLogin); 
     removeLocalStorage();
     delete api.defaults.headers.common.authorization;
 }, []);
 
 const loadUserStorageData = useCallback(async () => {
+    //recuperar os dados do AsyncStorage (se válido) preenche no cabeçalho da API e no variável de estado.
     const user = await AsyncStorage.getItem("user");
     if (user) {
         const userParse = JSON.parse(user) as IUserLogin
