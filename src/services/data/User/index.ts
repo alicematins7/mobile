@@ -23,13 +23,14 @@ export interface IUserLogin {
     }
 }
 class UserData {
-    register(data: IRegister){
-        return api.post<IUser>('/register', data)  //<Dado que será retornado após o cadastro IUser>
+    register(data: IRegister) {
+        return api.post<IUser>('/register', data);
     }
-    login(data: IAuthenticate){
-        return api.post<IUserLogin>('/login')
+    login(data: IAuthenticate) {
+        return api.post<IUserLogin>('/login', data);
+    }
+    updateToken(token: string) {
+        return api.put('/user', {token})
     }
 }
 export default new UserData()
-
-// a interrogação serve para ser nula, nn dar erro na hora de digitação

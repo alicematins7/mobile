@@ -15,17 +15,34 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Allow $(PRODUCT_NAME) to acess your photos.",
+        "NSPhotoLibraryAddUsageDescription": "Allow $(PRODUCT_NAME) to save photos",
+        "NSCameraUsageDescription": "Permita $(PRODUCT_NAME) acessar a sua câmera.",
+        "NSMicrophoneUsageDescription": "Allow $(PRODUCT_NAME) to access your microphone"
+      },
+      "bundleIdentifier": "com.alicematins7.alice"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.FOREGROUND_SERVICE"
+      ],
+      "package": "com.alicematins7.alice"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }, 
+    },
     "plugins": [
       [
         "expo-camera",
@@ -33,27 +50,37 @@
           "cameraPermission": "Permita $(PRODUCT_NAME) acessar a sua câmera."
         }
       ],
-    [
-      "expo-media-library",
-      {
-        "photosPermission": "Allow $(PRODUCT_NAME) to acess your photos.",
-        "savePhotosPermission":"Allow $(PRODUCT_NAME) to save photos",
-        "isAcessMediaLocationEnabled": true
-      }
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to acess your photos.",
+          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos",
+          "isAcessMediaLocationEnabled": true
+        }
+      ],
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Permita $(PRODUCT_NAME) acessar a sua câmera."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Permita $(PRODUCT_NAME) sua localização."
+        }
+      ]
     ],
-    [
-      "expo-barcode-scanner",
-      {
-        "cameraPermission":"Permita $(PRODUCT_NAME) acessar a sua câmera."
+    "extra": {
+      "eas": {
+        "projectId": "8120a04b-22a8-42b8-ad12-e9dba98196ec"
       }
-    ],
-    [
-      "expo-location",
-      {
-        "locationAlwaysAndWhenInUsePermission": "Permita $(PRODUCT_NAME) sua localização."
-      }
-    ]
-  ]
-
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/8120a04b-22a8-42b8-ad12-e9dba98196ec"
+    }
   }
 }
