@@ -2,11 +2,13 @@ import { View, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import {TabTypes} from "../../navigation/tab.navigation"
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ComponentButtonInterface, ComponentLoading } from "../../components";
 import * as Notification from 'expo-notifications';
 import { useAuth } from "../../hooks/auth";
 import { registerForPushNotificationsAsync } from '../../services/data/Push'
+import { IUserLogin } from "../../services/data/User";
+import { api } from "../../services/api";
 
 Notification.setNotificationHandler({
     handleNotification: async () => ({
@@ -17,11 +19,10 @@ Notification.setNotificationHandler({
 });
 
 export function Perfil({ navigation }:TabTypes) {
-    const { user } = useAuth();
+    const { user, signOut } = useAuth();
     const[isLoading, setIsLoading] = useState(true);
-    function HandleVoltar(){
-        const login = navigation.getParent()
-        login?.goBack()
+    async function  HandleVoltar(){
+        await signOut()
     }
     useEffect(() => {
         if (user) {
@@ -35,6 +36,7 @@ export function Perfil({ navigation }:TabTypes) {
         }
         fetchToken()
     }, []);
+
     return (
         <>
             {isLoading ? (
@@ -43,10 +45,11 @@ export function Perfil({ navigation }:TabTypes) {
                 <View style={styles.container}>
                     <Text>Perfil</Text>
                     <TouchableOpacity onPress={HandleVoltar}>
-                        <Text>Voltar</Text>
+                        <Text>Log Out</Text>
                     </TouchableOpacity>
                 </View>
             )}   
         </>
     )
 }
+
