@@ -4,7 +4,7 @@ import { Accelerometer } from 'expo-sensors';
 import { styles } from '../Acelerometro/styles';
 import { Subscription } from 'expo-notifications';
 
-export function Acelerometro() {
+export function AcelerometroScreen() {
   const [{ x, y, z }, setData] = useState({
     x: 0,
     y: 0,
@@ -31,7 +31,7 @@ export function Acelerometro() {
 
   return (
     <View style={styles.container}>
-      <Image source={require("../../assets/estrada.gif")} style={styles.fundo}/>
+      <Image source={require("../../assets/fundo.gif")} style={styles.fundo}/>
       <Image source={require("../../assets/carro.png")} style={{
         width: 70,
         height: 50,
@@ -39,9 +39,10 @@ export function Acelerometro() {
         left: (Dimensions.get("screen").width /2.5) - ( x * Dimensions.get("screen").width / 3)
       }}/>
       <Text style={styles.text}>Accelerometer: (in gs where 1g = 9.81 m/s²)</Text>
-      <Text style={styles.text}>x: {x}</Text>
-      <Text style={styles.text}>y: {y}</Text>
-      <Text style={styles.text}>z: {z}</Text>
+      <Text style={styles.text}>d: {(Dimensions.get("screen").width / 2).toFixed(4)}</Text>
+      <Text style={styles.text}>x: {x.toFixed(4)}</Text>
+      <Text style={styles.text}>y: {y.toFixed(4)}</Text>
+      <Text style={styles.text}>z: {z.toFixed(4)}</Text>
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={subscription ? _unsubscribe : _subscribe} style={styles.button}>
           <Text>{subscription ? 'On' : 'Off'}</Text>
